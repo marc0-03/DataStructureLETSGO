@@ -7,12 +7,15 @@
  */
 public class LinkedList {
     Node first;
+    Node End;
+    int size;
 
     /**
      * Constructor to create an empty list.
      */
     public LinkedList() {
         first = null;
+        size = 0;
     }
 
     /**
@@ -21,7 +24,17 @@ public class LinkedList {
      * @param newNode
      */
     public void addLast(Node newNode) {
-
+        if (size==0) {
+            first = newNode;
+            End = first;
+        } else if (size==1){
+            first.next=newNode;
+            End = first.next;
+        } else {
+            End.next=newNode;
+            End=End.next;
+        }
+        size++;
     }
 
     /**
@@ -29,8 +42,11 @@ public class LinkedList {
      * (bad practice, should throw an Exception)
      * @return
      */
-    public Node removeFirst() {
-        return null;
+    public String removeFirst() {
+        String mem = first.data;
+        first = first.next;
+        size--;
+        return mem;
     }
 
     /**
@@ -40,7 +56,7 @@ public class LinkedList {
      * @return
      */
     public int size() {
-        return 0;
+        return size;
     }
 
     /**
@@ -48,7 +64,7 @@ public class LinkedList {
      * @return
      */
     public boolean isEmpty() {
-        return size()==0;
+        return size==0;
     }
 
 }

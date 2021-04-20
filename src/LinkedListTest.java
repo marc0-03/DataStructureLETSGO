@@ -2,12 +2,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * This is a class
- * Created 2020-02-19
- *
- * @author Magnus Silverdal
- */
 public class LinkedListTest {
     @Test
     public void shouldBeAbleToCreateLinkedList() {
@@ -30,6 +24,7 @@ public class LinkedListTest {
     public void addLastShouldWork() {
         LinkedList l = new LinkedList();
         l.addLast(new Node("Test",null));
+        assertEquals("Test", l.first.getData());
     }
 
     @Test
@@ -78,6 +73,19 @@ public class LinkedListTest {
         l.addLast(new Node("Test",null));
         l.addLast(new Node("Another Test",null));
         assertEquals("Test",l.removeFirst());
+    }
+
+    @Test
+    public void Extratesttocheckmorethan2inlist() {
+        LinkedList l = new LinkedList();
+        l.addLast(new Node("Test",null));
+        l.addLast(new Node("Another Test",null));
+        l.addLast(new Node("Another Test2",null));
+        l.addLast(new Node("Another Test3",null));
+        assertEquals("Test",l.removeFirst());
+        assertEquals("Another Test",l.removeFirst());
+        assertEquals("Another Test2",l.removeFirst());
+        assertEquals("Another Test3",l.removeFirst());
     }
 
 }

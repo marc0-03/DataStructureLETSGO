@@ -63,4 +63,17 @@ public class QueueTest {
         q.enqueue("Another test");
         assertEquals("Test",q.dequeue());
     }
+
+    @Test
+    public void Extratestaboutshit() {
+        Queue q = new Queue();
+        q.enqueue("Test");
+        q.enqueue("Another test");
+        q.enqueue("yo Another test");
+        q.enqueue("what Another test");
+        assertEquals("Test",q.dequeue());
+        assertEquals("Another test",q.dequeue());
+        assertEquals("yo Another test",q.dequeue());
+        assertEquals("what Another test",q.dequeue());
+    }
 }
